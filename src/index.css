@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Mooli&family=Open+Sans:wght@300;400&family=Roboto:ital,wght@0,500;1,500&family=Ubuntu&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.listItem:hover {
+  background: #e2e8f0;
+  cursor: pointer;
+}
+
+.github-corner svg {
+  position:absolute;
+  right:0;
+  top:0;
+  mix-blend-mode:darken;
+  color:#ffffff;
+  fill:#000000;
+}
+.github-corner:hover .octo-arm {
+  animation:octocat-wave .56s;
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform:rotate(0);
+  }
+  20%, 60% { 
+    transform:rotate(-20deg);
+  
+  } 40%, 80% {
+    transform:rotate(10deg);
+  }
+}
