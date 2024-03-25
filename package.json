@@ -1,7 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "proxy": "http://localhost:1337/",
+  "proxy": "http://localhost:8070/",
   "dependencies": {
     "@heroicons/react": "^2.0.18",
     "@monaco-editor/react": "^4.4.4",
