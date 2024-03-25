@@ -83,16 +83,18 @@ function AddCourse() {
                 className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-            <div>
-              <label className="block text-lg lg:text-xl mb-2">Thumbnail:</label>
-              <input
-                type="text"
-                name="thumbnail"
-                value={formData.thumbnail}
-                onChange={handleChange}
-                className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+            <div className="mb-4">
+  <label className="block text-lg lg:text-xl mb-2">Thumbnail:</label>
+    <div className="flex items-center">
+    <input
+      type="file"
+      accept="image/*"
+      name="thumbnail"
+      onChange={handleChange}
+      className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+      />
+     </div>
+     </div>    
             <div>
               <label className="block text-lg lg:text-xl mb-2">Chapters:</label>
               <input
@@ -121,6 +123,7 @@ function AddCourse() {
                 Submit
               </button>
             </div>
+
           </form>
         </div>
       </div>
