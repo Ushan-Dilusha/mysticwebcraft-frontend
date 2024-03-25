@@ -29,7 +29,7 @@ function AddCourse() {
     e.preventDefault();
 
     axios
-      .post('http://localhost:1337/courses/add', formData)
+      .post('http://localhost:8070/api/courses', formData)
       .then((response) => {
         console.log('Course added successfully:', response.data);
       })
