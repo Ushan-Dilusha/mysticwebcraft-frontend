@@ -92,7 +92,32 @@ function AdminDashboard() {
 
               </div>
             )}
+          
+
+
+          {selectedAdmin === 'course' && (
+              <div>
+                <h3 className="mb-4 text-xl font-semibold ">Courses Admin Actions</h3>
+                <Link to="/createcourse">
+                  <button
+                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
+                  >
+                    Create Course 
+                  </button>
+                </Link>
+                <Link to="/editcourse/createcourse">
+                  <button
+                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
+                  >
+                    Add or Edit Courses
+                  </button>
+                </Link>
+
+              </div>
+            )}
           </section>
+
+          
           <section className="p-4 bg-white rounded-lg ">
             {selectedAdmin === 'quiz' && (
               <div>
@@ -110,6 +135,8 @@ function AdminDashboard() {
     </div>
   );
 }
+
+
 
 function Sidebar({ selectedAdmin = '', onSelect }) {
   const getButtonStyle = (adminType) => {
@@ -129,13 +156,20 @@ function Sidebar({ selectedAdmin = '', onSelect }) {
       </button>
       <button
         onClick={() => onSelect('company')}
-        className={`${getButtonStyle('company')} hover:bg-blue-500 font-semibold rounded-lg block w-full text-left`}
+        className={`${getButtonStyle('company')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
       >
         Company Management
+      </button>
+      <button
+        onClick={() => onSelect('course')}
+        className={`${getButtonStyle('course')} hover:bg-blue-500 font-semibold rounded-lg block w-full text-left`}
+      >
+        Course Management
       </button>
     </div>
   );
 }
+
 function ViewCompany() {
   const chartRef = useRef(null);
 
