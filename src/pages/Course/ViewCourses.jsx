@@ -1,6 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+
+//....Delete Course....//
+
+const DeleteCourse = ({ courseId, onDelete }) => {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState(null);
+
+  const handleDelete = async () => {
+    setIsDeleting(true);
+    try {
+      await axios.delete(`http://localhost:8070/api/courses/${courseId}`);
+      onDelete(courseId); // Notify parent component about the deletion
+      console.log('Course deleted successfully');
+    } catch (error) {
+      setDeleteError(error.response.data.message || 'An error occurred while deleting the course');
+    } finally {
+      setIsDeleting(false);
+    }
+  };
+
+  return (
+    <div>
+      {deleteError && <p>Error: {deleteError}</p>}
+      <button onClick={handleDelete} disabled={isDeleting}>
+        {isDeleting ? 'Deleting...' : 'Delete'}
+      </button>
+    </div>
+  );
+};
+
+//.....ViewCourses...//
+
 function ViewCourses() {
   const [courses, setCourses] = useState([]);
 
@@ -14,41 +47,43 @@ function ViewCourses() {
       });
   }, []);
 
+  const handleEdit = (courseId) => {
+    console.log('Edit course with ID:', courseId);
+    // Implement your edit functionality here
+  };
+
+  const handleDelete = (deletedCourseId) => {
+    setCourses(prevCourses => prevCourses.filter(course => course._id !== deletedCourseId));
+  };
+
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8">
-      <h1 className="text-2xl lg:text-4xl font-bold py-6">All Courses</h1>
-      <div className="shadow-lg border-2 rounded-lg p-8">
+      <h1 className="text-3xl lg:text-4xl font-bold mb-8">All Courses</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {courses.length > 0 ? (
-          <table className="w-full">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Resources</th>
-                <th>Thumbnail</th>
-                <th>Chapters</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {courses.map(course => (
-                <tr key={course._id}>
-                  <td>{course.category}</td>
-                  <td>{course.title}</td>
-                  <td>{course.description}</td>
-                  <td>{course.resources}</td>
-                  <td>
-                    <img src={course.thumbnail} alt="Thumbnail" style={{ maxWidth: '100px' }} />
-                  </td>
-                  <td>{course.chapters}</td>
-                  <td>{course.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          courses.map(course => (
+            <div key={course._id} className="relative bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="absolute top-0 right-0 z-10">
+                <button onClick={() => handleEdit(course._id)} className="text-blue-500 hover:text-blue-600 mr-2">
+                  Edit
+                </button>
+                <button className="text-red-500 hover:text-red-600">
+                <DeleteCourse courseId={course._id} onDelete={handleDelete}/>
+                </button>
+              </div>
+              <img src={course.thumbnail} alt="Thumbnail" className="w-full h-40 object-cover" />
+              <div className="p-6">
+                <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
+                <p className="text-gray-600 mb-4">{course.description}</p>
+                <div className="flex justify-between items-center">
+                  <p className="text-gray-700">Category: {course.category}</p>
+                  <p className="text-blue-500 font-bold">{course.price}</p>
+                </div>
+              </div>
+            </div>
+          ))
         ) : (
-          <p>No courses available</p>
+          <p className="text-lg text-center">No courses available</p>
         )}
       </div>
     </div>
