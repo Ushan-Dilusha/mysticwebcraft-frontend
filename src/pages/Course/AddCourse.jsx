@@ -143,6 +143,7 @@ function AddCourse() {
               />
               {errors.resources && <p className="text-red-500 text-sm">{errors.resources}</p>}
             </div>
+
             <div className="mb-4">
               <label className="block text-lg lg:text-xl mb-2">Thumbnail:</label>
               <div className="flex items-center">
@@ -157,6 +158,8 @@ function AddCourse() {
               {errors.thumbnail && <p className="text-red-500 text-sm">{errors.thumbnail}</p>}
             </div>    
             <div>
+
+              
               <label className="block text-lg lg:text-xl mb-2">Chapters:</label>
               <input
                 type="text"
