@@ -16,7 +16,7 @@ function AdminDashboard() {
       <header className="flex items-center justify-between p-4 border-b-2">
         <div>
           <Link to="/admindashboard" className="text-2xl font-semibold text-black ">
-            Sk<span className='text-blue-700'>i</span>llSpan
+            MYSTIC<span className='text-blue-700'>WEB</span>CRAFT
           </Link>
         </div>
       </header>
@@ -272,5 +272,27 @@ function ViewQuizzesGraph() {
     </div>
   );
 }
+
+
+
+//course chart 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default AdminDashboard;
