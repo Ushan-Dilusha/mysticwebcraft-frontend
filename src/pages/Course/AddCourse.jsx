@@ -61,16 +61,16 @@ function AddCourse() {
 
   const handleBack = () => {
     navigate(-1);
-};
+  };
 
   return (
     <>
       <Header />
       <div className="flex justify-center">
         <div className="w-full max-w-xl mt-10">
-        <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
-          Back
-        </Button>
+          <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
+            Back
+          </Button>
           <h1 className="mb-4 text-3xl font-bold">Add Course</h1>
           <div className="shadow-lg border-2 rounded-lg p-8">
             <form
@@ -81,104 +81,114 @@ function AddCourse() {
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
                   Category:
+                  <input
+                    type="text"
+                    name="category"
+                    value={category}
+                    onChange={(e) => {
+                      setCategory(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
                 </label>
-                <input
-                  type="text"
-                  name="category"
-                  value={category}
-                  onChange={(e) => {
-                    setCategory(e.target.value);
-                  }}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
               </div>
               <div>
-                <label className="block text-lg lg:text-xl mb-2">Title:</label>
-                <input
-                  type="text"
-                  name="title"
-                  value={title}
-                  onChange={(e) => {
-                    setTitle(e.target.value);
-                  }}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                <label className="block text-lg lg:text-xl mb-2">
+                  Title:
+                  <input
+                    type="text"
+                    name="title"
+                    value={title}
+                    onChange={(e) => {
+                      setTitle(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
+                </label>
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
                   Description:
+                  <textarea
+                    name="description"
+                    value={description}
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
+                    className="w-full h-32 border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
                 </label>
-                <textarea
-                  name="description"
-                  value={description}
-                  onChange={(e) => {
-                    setDescription(e.target.value);
-                  }}
-                  className="w-full h-32 border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
                   Resources:
+                  <input
+                    type="text"
+                    name="resources"
+                    value={resources}
+                    onChange={(e) => {
+                      setResources(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
                 </label>
-                <input
-                  type="text"
-                  name="resources"
-                  value={resources}
-                  onChange={(e) => {
-                    setResources(e.target.value);
-                  }}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500 "
-                />
               </div>
-
               <div className="mb-4">
                 <label className="block text-lg lg:text-xl mb-2">
                   Thumbnail:
+                  <div className="flex items-center">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      name="image"
+                      onChange={onChangeFile}
+                      className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                      required // Add required attribute
+                    />
+                  </div>
                 </label>
-                <div className="flex items-center">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    name="image"
-                    onChange={onChangeFile}
-                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                  />
-                </div>
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
                   Chapters:
+                  <input
+                    type="text"
+                    name="chapters"
+                    value={chapters}
+                    onChange={(e) => {
+                      setChapters(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
                 </label>
-                <input
-                  type="text"
-                  name="chapters"
-                  value={chapters}
-                  onChange={(e) => {
-                    setChapters(e.target.value);
-                  }}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
               </div>
               <div>
-                <label className="block text-lg lg:text-xl mb-2">Price:</label>
-                <input
-                  type="text"
-                  name="price"
-                  value={price}
-                  onChange={(e) => {
-                    setPrice(e.target.value);
-                  }}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                <label className="block text-lg lg:text-xl mb-2">
+                  Price:
+                  <input
+                    type="text"
+                    name="price"
+                    value={price}
+                    onChange={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
+                </label>
               </div>
               <div className="mt-10">
-              <button
-                type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
-            >
-               Submit
-            </button> 
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </div>

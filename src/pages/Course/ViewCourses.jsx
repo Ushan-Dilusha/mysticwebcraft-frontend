@@ -160,7 +160,7 @@ function ViewCourses() {
               );
             })
           ) : (
-            <p className="text-lg text-center">No courses available</p>
+            <p className="text-lg text-center">Loading</p>
           )}
         </div>
       </div>
