@@ -181,7 +181,7 @@ function Sidebar({ selectedAdmin = '', onSelect }) {
       </button>
       <button
         onClick={() => onSelect('course')}
-        className={`${getButtonStyle('course')} hover:bg-blue-500 font-semibold rounded-lg block w-full text-left`}
+        className={`${getButtonStyle('course')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
       >
         Course Management
       </button>
