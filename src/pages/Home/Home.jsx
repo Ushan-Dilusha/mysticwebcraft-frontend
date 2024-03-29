@@ -33,10 +33,10 @@ function Home() {
             <div className='flex items-center justify-center w-1/2'>
           <div className="container mx-auto">
             <h1 className="text-4xl font-semibold">
-              Welcome to{' '}
+              Welcome to{''}
               <Typed
                 className="text-4xl font-bold text-blue-700 sm:text-4xl"
-                strings={['SkillSpan']}
+                strings={[' MYSTICWEBCRAFT']}
                 typeSpeed={120}
                 backSpeed={140}
                 loop
