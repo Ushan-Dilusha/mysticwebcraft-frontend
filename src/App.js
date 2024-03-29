@@ -4,6 +4,9 @@ import Home from "./pages/Home/Home";
 import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
 import AddCourse from "./pages/Course/AddCourse";
 import ViewCourses from "./pages/Course/ViewCourses";
+import UpdateCourse from "./pages/Course/UpdateCourse";
+
+
 
 
 
@@ -17,6 +20,8 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/addcourse" element={<AddCourse />} />
                     <Route path="/all" element={<ViewCourses />} />
+                    <Route path="/update/:id" element={<UpdateCourse />} />
+
                 </Routes>
             </BrowserRouter>
         </div>

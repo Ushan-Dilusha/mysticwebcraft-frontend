@@ -33,7 +33,7 @@ const [category, setCategory] = useState("");
     formData.append("category", category);
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("resource", resources);
+    formData.append("resources", resources);
     formData.append("chapters", chapters);
     formData.append("price", price);
     formData.append("image", image);
@@ -48,7 +48,7 @@ const [category, setCategory] = useState("");
       setResources("");
       setChapters("");
       setPrice("");
-      window.location.reload();
+      window.location.href = "/all";
     }).catch((err) => {
       alert(err);
     });

@@ -62,9 +62,25 @@ function ViewCourses() {
     setCourses(prevCourses => prevCourses.filter(course => course._id !== deletedCourseId));
   };
 
+
+  const handleViewOrder = (_id) => {
+    // Construct the URL with the orderId
+    const viewUpdatePageURL = `/update/${_id}`;
+    // Navigate to the constructed URL
+    window.location.href = viewUpdatePageURL;
+  };
+  const addNavigation = () => {
+    // Construct the URL with the orderId
+    const viewAddPageURL = `/addcourse`;
+    // Navigate to the constructed URL
+    window.location.href = viewAddPageURL;
+  };
+
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8">
       <h1 className="text-3xl lg:text-4xl font-bold mb-8">All Courses</h1>
+      <button onClick={addNavigation} style={{marginLeft:"1100px"}} type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200">Add Course</button>
+      <br></br> <br></br>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {courses.length > 0 ? (
           courses.map((course) => {
@@ -75,8 +91,8 @@ function ViewCourses() {
             return (
               <div key={course._id} className="relative bg-white rounded-lg shadow-md overflow-hidden">
                 <div className="absolute top-0 right-0 z-10">
-                  <button  className="text-blue-500 hover:text-blue-600 mr-2">
-                    Edit
+                  <button onClick={() => { console.log(course._id); handleViewOrder(course._id); }}  className ="text-blue-500 hover:text-blue-600 mr-2">
+                    Edit 
                   </button>
                   <button className="text-red-500 hover:text-red-600">
                     <DeleteCourse courseId={course._id} onDelete={handleDelete}/>
