@@ -12,7 +12,7 @@ function Header() {
             to="/"
             className="text-2xl text-black "
           >
-            Sk<span className='text-blue-700'>i</span>llSpan
+            MYSTIC<span className='text-blue-700'>WEB</span>CRAFT
           </Link>
         </div>
 
