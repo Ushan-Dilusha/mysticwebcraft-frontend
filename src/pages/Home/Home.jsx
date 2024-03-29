@@ -2,8 +2,6 @@ import React , {useRef} from 'react';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import Typed from 'react-typed';
-import { Link } from 'react-router-dom';
-import cover from './cover.png';
 import img1 from './img1.jpg'
 import img2 from './img2.jpg'
 import img3 from './img3.jpg'
@@ -25,15 +23,14 @@ function Home() {
     <div className='h-full'>
       <div className="bg-white ">
         <Header />
-      
         <header className="flex py-0 pt-0 text-center text-black  bg-gradient-to-br from-blue-300 to-blue-50">
           <div className="container w-1/2 mx-auto">
-          <img src={heroImg3}/>
+          <img src={heroImg3} alt='image1'/>
             </div>
             <div className='flex items-center justify-center w-1/2'>
           <div className="container mx-auto">
             <h1 className="text-4xl font-semibold">
-              Welcome to{''}
+              Welcome To{ ''}
               <Typed
                 className="text-4xl font-bold text-blue-700 sm:text-4xl"
                 strings={[' MYSTICWEBCRAFT']}
@@ -66,7 +63,7 @@ function Home() {
               <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4 h-{200}">
                 <div className="p-6 bg-white rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">Interactive Lessons</h3>
-                  <img src={img1}/>
+                  <img src={img1} alt='img2'/>
                   <p className="mt-2 text-gray-600">Engage with interactive Questions. Train your brain </p>
                 </div>
               </div>
@@ -74,9 +71,9 @@ function Home() {
               {/* Feature 2 */}
               <div className="w-full p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
                 <div className="p-6 bg-white rounded-lg shadow-md">
-                  <h3 className="text-lg font-semibold">Internship support</h3>
-                  <img src={img2}/>
-                  <p className="mt-2 text-gray-600">Sharpen your skills with Intern Support. Best Intern Trainer</p>
+                  <h3 className="text-lg font-semibold">Code Complexity Analyzer</h3>
+                  <img src={img2} alt='img3'/>
+                  <p className="mt-2 text-gray-600">Code Complexity Analyzer assesses code intricacy to improve quality.</p>
                 </div>
               </div>
 
@@ -84,7 +81,7 @@ function Home() {
               <div className="w-full p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
                 <div className="p-6 bg-white rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">Community Forum</h3>
-                  <img src={img3}/>
+                  <img src={img3} alt='img4'/>
                   <p className="mt-2 text-gray-600">Connect with other learners in our community forum.</p>
                 </div>
               </div>
@@ -93,7 +90,7 @@ function Home() {
               <div className="w-full p-4 sm:w-1/2 md:w-1/3 lg:w-1/4">
                 <div className="p-6 bg-white rounded-lg shadow-md">
                   <h3 className="text-lg font-semibold">Progress Tracking</h3>
-                  <img src={img4}/>
+                  <img src={img4} alt='img5'/>
                   <p className="mt-2 text-gray-600">Monitor your progress and track your achievements.</p>
                 </div>
               </div>

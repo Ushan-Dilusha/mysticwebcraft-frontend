@@ -3,6 +3,7 @@ import { Form, Input, Button, message, } from 'antd';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { addCommunity } from '../../service/community';
 
 function CommunityAddPage() {
@@ -25,11 +26,16 @@ function CommunityAddPage() {
         console.log('Failed:', errorInfo);
     };
 
+    const handleBack = () => {
+        navigate(-1);
+    };
+
     return (
         <>
             <Header />
             <div className="flex justify-center">
                 <div className="w-full max-w-xl mt-10">
+                    <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>Back</Button>
                     <h1 className="mb-4 text-3xl font-bold">Add Community Questions</h1>
                     <Form
                         name="communityForm"
