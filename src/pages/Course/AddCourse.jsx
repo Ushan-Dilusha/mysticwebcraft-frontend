@@ -39,14 +39,20 @@ function AddCourse() {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then(() => {
-        alert("Course details added");
+        swal({
+          title: "Course Added Successfully",
+          text: " ",
+          icon: "success",
+          buttons: false, // Hide the "OK" button
+        });
         setCategory("");
         setTitle("");
         setDescription("");
         setResources("");
         setChapters("");
-        setPrice("");
-        window.location.href = "/all";
+        setTimeout(() => {
+          window.location.href = "/all"; // Redirect after a short delay
+        }, 2500); // Adjust the delay as needed
       })
       .catch((err) => {
         alert(err);

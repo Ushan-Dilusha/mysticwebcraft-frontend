@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeftOutlined } from '@ant-design/icons';
+import swal from 'sweetalert';
 
 function UpdateCourse() {
 
@@ -62,8 +65,15 @@ function UpdateCourse() {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then(() => {
-        alert("Course details updated");
-        window.location.href = "/all";
+        swal({
+          title: "Course Update Successfully",
+          text: " ",
+          icon: "success",
+          buttons: false, // Hide the "OK" button
+        });
+        setTimeout(() => {
+          window.location.href = "/all"; // Redirect after a short delay
+        }, 2500); // Adjust the delay as needed
       })
       .catch((err) => {
         alert(err);
@@ -75,12 +85,12 @@ function UpdateCourse() {
 };
 
   return (
-    <>
+    <><Header /><>
       <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8 flex items-center">
         <div className="w-2/3 p-8">
-        <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
-          Back
-        </Button>
+          <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
+            Back
+          </Button>
           <h1 className="text-2xl lg:text-4xl font-bold py-6">Update Course</h1>
           <div className="shadow-lg border-2 rounded-lg p-8">
             <form
@@ -97,8 +107,7 @@ function UpdateCourse() {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">Title:</label>
@@ -107,8 +116,7 @@ function UpdateCourse() {
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
@@ -118,8 +126,7 @@ function UpdateCourse() {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full h-32 border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                  className="w-full h-32 border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
@@ -130,8 +137,7 @@ function UpdateCourse() {
                   name="resources"
                   value={formData.resources}
                   onChange={handleChange}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500 "
-                />
+                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500 " />
               </div>
               <div className="mb-4">
                 <label className="block text-lg lg:text-xl mb-2">
@@ -143,8 +149,7 @@ function UpdateCourse() {
                     accept="image/*"
                     name="image"
                     onChange={handleFileChange}
-                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                  />
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
                 </div>
               </div>
               <div>
@@ -156,8 +161,7 @@ function UpdateCourse() {
                   name="chapters"
                   value={formData.chapters}
                   onChange={handleChange}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div>
                 <label className="block text-lg lg:text-xl mb-2">Price:</label>
@@ -166,8 +170,7 @@ function UpdateCourse() {
                   name="price"
                   value={formData.price}
                   onChange={handleChange}
-                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
-                />
+                  className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500" />
               </div>
               <div className="mt-10">
                 <button
@@ -181,7 +184,8 @@ function UpdateCourse() {
           </div>
         </div>
       </div>
-    </>
+    </> <Footer /></>
+    
   );
 }
 
