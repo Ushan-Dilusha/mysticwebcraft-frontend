@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
@@ -20,6 +23,7 @@ const DeleteCourse = ({ courseId, onDelete }) => {
         error.response.data.message ||
           "An error occurred while deleting the course"
       );
+    
     } finally {
       setIsDeleting(false);
     }
@@ -59,11 +63,17 @@ function ViewCourses() {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+};
   const handleDelete = (deletedCourseId) => {
     setCourses((prevCourses) =>
       prevCourses.filter((course) => course._id !== deletedCourseId)
     );
   };
+
 
   const handleViewOrder = (_id) => {
     // Construct the URL with the orderId
@@ -82,6 +92,9 @@ function ViewCourses() {
     <>
       <Header />
       <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8">
+      <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
+          Back
+        </Button>
         <h1 className="text-3xl lg:text-4xl font-bold mb-8">All Courses</h1>
         <button
           onClick={addNavigation}

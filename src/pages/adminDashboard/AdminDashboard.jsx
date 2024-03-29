@@ -14,11 +14,8 @@ function AdminDashboard() {
       {/* Header component */}
       <header className="flex items-center justify-between p-4 border-b-2">
         <div>
-          <Link
-            to="/admindashboard"
-            className="text-2xl font-semibold text-black "
-          >
-            MYSTIC<span className="text-blue-700">WEB</span>CRAFT
+          <Link to="/admin" className="text-2xl font-semibold text-black ">
+            MYSTIC<span className='text-blue-700'>WEB</span>CRAFT
           </Link>
         </div>
       </header>

@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import swal from 'sweetalert';
-
+import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 function AddCourse() {
-  //Add
   const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -14,6 +15,8 @@ function AddCourse() {
   const [image, setImage] = useState("");
   const [chapters, setChapters] = useState("");
   const [price, setPrice] = useState("");
+
+  const navigate = useNavigate();
 
   function onChangeFile(e) {
     setImage(e.target.files[0]);
@@ -35,9 +38,8 @@ function AddCourse() {
       .post("http://localhost:8070/api/courses", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
-
       .then(() => {
-        swal("Category Added Successfully", " ", "success")
+        alert("Course details added");
         setCategory("");
         setTitle("");
         setDescription("");
@@ -51,11 +53,18 @@ function AddCourse() {
       });
   }
 
+  const handleBack = () => {
+    navigate(-1);
+};
+
   return (
     <>
       <Header />
       <div className="flex justify-center">
         <div className="w-full max-w-xl mt-10">
+        <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
+          Back
+        </Button>
           <h1 className="mb-4 text-3xl font-bold">Add Course</h1>
           <div className="shadow-lg border-2 rounded-lg p-8">
             <form

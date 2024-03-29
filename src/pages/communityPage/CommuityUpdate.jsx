@@ -3,6 +3,7 @@ import { Form, Input, Button, message } from 'antd';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { useParams, useNavigate } from 'react-router-dom';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { updateCommunity, getCommunityById } from '../../service/community';
 
 function CommunityUpdatePage() {
@@ -12,7 +13,7 @@ function CommunityUpdatePage() {
     const navigate = useNavigate();
     useEffect(() => {
         fetchCommunityData();
-     // eslint-disable-next-line
+        // eslint-disable-next-line
     }, []);
 
     const { id } = useParams();
@@ -20,7 +21,6 @@ function CommunityUpdatePage() {
         try {
             const communityData = await getCommunityById(id);
             setCommunity(communityData);
-            console.log(communityData)
         } catch (error) {
             message.error('Failed to fetch community data');
         }
@@ -46,11 +46,16 @@ function CommunityUpdatePage() {
         return null;
     }
 
+    const handleBack = () => {
+        navigate(-1);
+    };
+
     return (
         <>
             <Header />
             <div className="flex justify-center">
                 <div className="w-full max-w-xl mt-10">
+                    <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>Back</Button>
                     <h1 className="mb-4 text-3xl font-bold">Update Community Questions</h1>
                     <Form
                         name="communityForm"

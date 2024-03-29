@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import { timeAgo } from '../../util/timeConver';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 import { fetchCommunities, deleteCommunity } from '../../service/community';
 
 function CommunityView() {
@@ -42,6 +43,10 @@ function CommunityView() {
 
     const handleAddCommunity = async (id) => {
         navigate(`/community-add`);
+    };
+
+    const handleBack = () => {
+        navigate(-1);
     };
 
     const renderModalContent = () => {
@@ -84,6 +89,7 @@ function CommunityView() {
         <>
             <Header />
             <div className="container mx-auto px-4 py-8">
+                <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>Back</Button>
                 <h1 className="text-3xl font-bold mb-8">All Community Questions</h1>
                 <div className="flex justify-end mt-8">
                     <Button
