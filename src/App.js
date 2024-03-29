@@ -5,10 +5,10 @@ import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
 import AddCourse from "./pages/Course/AddCourse";
 import ViewCourses from "./pages/Course/ViewCourses";
 import UpdateCourse from "./pages/Course/UpdateCourse";
-
-
-
-
+import CommunityView from "./pages/communityPage/CommunitiesView";
+import UserDashboard from "./pages/userDashboard/userDashboard";
+import CommunityAddPage from "./pages/communityPage/CommuityAdd";
+import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
 
 function App() {
     return (
@@ -16,12 +16,15 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     {/* add your pages path and link it */}
-                    <Route path="/admindashboard" element={<AdminDashboard />} />
+                    <Route path="/admin" element={<AdminDashboard />} />
+                    <Route path="/community-view" element={<CommunityView />} />
+                    <Route path="/community-add" element={<CommunityAddPage />} />
+                    <Route path="/community-update/:id" element={<CommunityUpdatePage />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/addcourse" element={<AddCourse />} />
                     <Route path="/all" element={<ViewCourses />} />
                     <Route path="/update/:id" element={<UpdateCourse />} />
-
+                    <Route path="/user" element={<UserDashboard />} />
                 </Routes>
             </BrowserRouter>
         </div>

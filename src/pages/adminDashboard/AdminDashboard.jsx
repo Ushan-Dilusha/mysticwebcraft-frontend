@@ -65,6 +65,25 @@ function AdminDashboard() {
 
               </div>
             )}
+            {selectedAdmin === 'community' && (
+              <div>
+                <h3 className="mb-4 text-xl font-semibold">Community Question Admin Actions</h3>
+                <Link to="/community-add">
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
+                    Add community Question
+                  </button>
+                </Link>
+                <Link to="/community-view">
+                  <button
+                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
+                  >
+                    View Community Question
+                  </button>
+                </Link>
+                {/* Include the ViewQuizzesGraph component here */}
+
+              </div>
+            )}
             {selectedAdmin === 'company' && (
               <div>
                 <h3 className="mb-4 text-xl font-semibold ">Company Admin Actions</h3>
@@ -165,6 +184,12 @@ function Sidebar({ selectedAdmin = '', onSelect }) {
         className={`${getButtonStyle('course')} hover:bg-blue-500 font-semibold rounded-lg block w-full text-left`}
       >
         Course Management
+      </button>
+      <button
+        onClick={() => onSelect('community')}
+        className={`${getButtonStyle('community')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
+      >
+        Community Management
       </button>
     </div>
   );
