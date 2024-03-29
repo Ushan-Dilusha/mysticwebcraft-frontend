@@ -4,7 +4,6 @@ import Home from "./pages/Home/Home";
 import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
 import CommunityPage from "./pages/communityPage/CommunityPage";
 import UserDashboard from "./pages/userDashboard/userDashboard";
-import CommunityPageNew from "./pages/CommunityMangamentPage/CommunityMangementPage";
 
 
 function App() {
@@ -15,9 +14,7 @@ function App() {
                     {/* add your pages path and link it */}
                     <Route path="/admin" element={<AdminDashboard />} />
                     <Route path="/community" element={<CommunityPage />} />
-                    <Route path="/communityManagement" component={<CommunityPageNew />} />
                     <Route path="/" element={<Home />} />
-                    
                     <Route path="/user" element={<UserDashboard />} />
                 </Routes>
             </BrowserRouter>

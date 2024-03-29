@@ -1,41 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Spin, Avatar, Button } from 'antd';
+import { Spin, Avatar } from 'antd';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
-import CustomModal from '../../components/cutomModal/customModal'; // Adjust the import path as per your project structure
+import { timeAgo } from '../../util/timeConver';
+import { fetchCommunities } from '../../service/community';
 
 function CommunityPage() {
-    const [communities, setCommunities] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedCommunity, setSelectedCommunity] = useState(null); // State to store selected community
-    const [modalVisible, setModalVisible] = useState(false); // State to manage modal visibility
+    const [communities, setCommunities] = useState([]);
 
     useEffect(() => {
-        // Fetch communities data from API or local data source
-        fetchCommunities();
+        fetchCommunityData();
     }, []);
 
-    const fetchCommunities = async () => {
+    const fetchCommunityData = async () => {
         try {
-            const response = await fetch('http://localhost:8070/api/communities');
-            if (!response.ok) {
-                throw new Error('Failed to fetch communities');
-            }
-            const data = await response.json();
+            const data = await fetchCommunities();
             setCommunities(data);
-            setLoading(false); // Set loading to false once data is fetched
+            setLoading(false);
         } catch (error) {
-            console.error('Error fetching communities:', error);
+            setLoading(false);
         }
-    };
-
-    const openModal = (community) => {
-        setSelectedCommunity(community);
-        setModalVisible(true);
-    };
-
-    const closeModal = () => {
-        setModalVisible(false);
     };
 
     return (
@@ -53,16 +38,17 @@ function CommunityPage() {
                                     </div>
                                     <div>
                                         <p className="font-bold">{community.title}</p>
-                                        <p className="text-sm text-gray-600">{new Date(community.createdAt).toLocaleString()}</p>
+                                        <p className="text-sm text-gray-600">{timeAgo(community.createdAt)}</p>
                                     </div>
                                 </div>
                                 <div className="mt-4">
                                     <p className="text-lg">{community.problem}</p>
-                                    <p className="mt-2 text-sm text-gray-500">Tags: {community.tags.join(', ')}</p>
-                                    <p className="mt-1 text-sm text-gray-500">Languages: {community.languages.join(', ')}</p>
-                                </div>
-                                <div className="mt-4">
-                                    <Button className="text-blue-500 hover:underline" onClick={() => openModal(community)}>View Details</Button>
+                                    {community.tags && (
+                                        <p className="mt-2 text-sm text-gray-500">Tags: {community.tags.join(', ')}</p>
+                                    )}
+                                    {community.languages && (
+                                        <p className="mt-1 text-sm text-gray-500">Languages: {community.languages.join(', ')}</p>
+                                    )}
                                 </div>
                             </div>
                         ))}
@@ -70,18 +56,6 @@ function CommunityPage() {
                 </div >
             </div >
             <Footer />
-            <CustomModal
-                title="Community Details"
-                visible={modalVisible}
-                onCancel={closeModal}
-            >
-                {selectedCommunity && (
-                    <div>
-                        <p>Title: {selectedCommunity.title}</p>
-                        <p>Problem: {selectedCommunity.problem}</p>
-                    </div>
-                )}
-            </CustomModal>
         </>
     );
 }
