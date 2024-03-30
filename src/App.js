@@ -9,6 +9,7 @@ import CommunityView from "./pages/communityPage/CommunitiesView";
 import UserDashboard from "./pages/userDashboard/userDashboard";
 import CommunityAddPage from "./pages/communityPage/CommuityAdd";
 import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
+import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/all" element={<ViewCourses />} />
                     <Route path="/update/:id" element={<UpdateCourse />} />
                     <Route path="/user" element={<UserDashboard />} />
+                    <Route path="/img" element={<ImageToTextConverter />} />
                 </Routes>
             </BrowserRouter>
         </div>
