@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Chart } from 'chart.js/auto';
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { Chart } from "chart.js/auto";
 
 function AdminDashboard() {
-  const [selectedAdmin, setSelectedAdmin] = useState('quiz');
-
+  const [selectedAdmin, setSelectedAdmin] = useState("quiz");
 
   const handleSidebarSelect = (adminType) => {
     setSelectedAdmin(adminType);
@@ -22,132 +21,116 @@ function AdminDashboard() {
       </header>
 
       <div className="container p-4 mx-auto">
-        <h2 className="mb-4 text-2xl font-semibold text-center">Admin Dashboard</h2>
+        <h2 className="mb-4 text-2xl font-semibold text-center">
+          Admin Dashboard
+        </h2>
         <br />
         <br />
 
         <div className="grid grid-cols-3 ">
           {/* Sidebar */}
-          <Sidebar selectedAdmin={selectedAdmin} onSelect={handleSidebarSelect} />
+          <Sidebar
+            selectedAdmin={selectedAdmin}
+            onSelect={handleSidebarSelect}
+          />
 
           {/* Content based on selected admin */}
           <section className="w-4/5 p-4 mb-4 bg-white rounded-lg shadow">
-            {selectedAdmin === 'quiz' && (
+            {selectedAdmin === "quiz" && (
               <div>
-                <h3 className="mb-4 text-xl font-semibold">Quiz Admin Actions</h3>
+                <h3 className="mb-4 text-xl font-semibold">
+                  Quiz Admin Actions
+                </h3>
                 <Link to="/addQuestion">
                   <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     Add Question
                   </button>
                 </Link>
                 <Link to="/qadmin">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     View Questions
                   </button>
                 </Link>
                 <Link to="/addQuiz">
-                  <button
-                    className="w-full bg-blue-200 hover.bg-blue-300 text-black font-semibold py-2 px-4 rounded-lg mb-2"
-                  >
+                  <button className="w-full bg-blue-200 hover.bg-blue-300 text-black font-semibold py-2 px-4 rounded-lg mb-2">
                     Add Quiz
                   </button>
                 </Link>
                 <Link to="/qadminquizview">
-                  <button
-                    className="w-full px-4 py-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     View Quizzes
                   </button>
                 </Link>
                 {/* Include the ViewQuizzesGraph component here */}
-
               </div>
             )}
-            {selectedAdmin === 'community' && (
+            {selectedAdmin === "community" && (
               <div>
-                <h3 className="mb-4 text-xl font-semibold">Community Question Admin Actions</h3>
+                <h3 className="mb-4 text-xl font-semibold">
+                  Community Question Admin Actions
+                </h3>
                 <Link to="/community-add">
                   <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     Add community Question
                   </button>
                 </Link>
                 <Link to="/community-view">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     View Community Question
                   </button>
                 </Link>
                 {/* Include the ViewQuizzesGraph component here */}
-
               </div>
             )}
-            {selectedAdmin === 'company' && (
+            {selectedAdmin === "company" && (
               <div>
-                <h3 className="mb-4 text-xl font-semibold ">Company Admin Actions</h3>
+                <h3 className="mb-4 text-xl font-semibold ">
+                  Company Admin Actions
+                </h3>
                 <Link to="/manageCompany">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     Manage Company
                   </button>
                 </Link>
                 <Link to="/company/addCompany">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     Add or Edit Company Details
                   </button>
                 </Link>
                 <Link to="/addRoadMaps">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
                     Add roadmaps
                   </button>
                 </Link>
-
               </div>
             )}
-          
 
-
-          {selectedAdmin === 'course' && (
+            {selectedAdmin === "course" && (
               <div>
-                <h3 className="mb-4 text-xl font-semibold ">Courses Admin Actions</h3>
-                <Link to="/createcourse">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
-                    Create Course 
+                <h3 className="mb-4 text-xl font-semibold ">
+                  Courses Admin Actions
+                </h3>
+                <Link to="/addcourse">
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
+                    Create Course
                   </button>
                 </Link>
-                <Link to="/editcourse/createcourse">
-                  <button
-                    className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300"
-                  >
-                    Add or Edit Courses
+                <Link to="/all">
+                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
+                    Manage Courses
                   </button>
                 </Link>
-
               </div>
             )}
           </section>
 
-          
           <section className="p-4 bg-white rounded-lg ">
-            {selectedAdmin === 'quiz' && (
+            {selectedAdmin === "quiz" && (
               <div>
                 <ViewQuizzesGraph className="mt-5" />
               </div>
             )}
-            {selectedAdmin === 'company' && (
-              <div>
-                <ViewCompany className="mt-5" />
-              </div>
-            )}
+            {selectedAdmin === "company"}
           </section>
         </div>
       </div>
@@ -155,119 +138,132 @@ function AdminDashboard() {
   );
 }
 
-
-
-function Sidebar({ selectedAdmin = '', onSelect }) {
+function Sidebar({ selectedAdmin = "", onSelect }) {
   const getButtonStyle = (adminType) => {
     return selectedAdmin === adminType
-      ? 'bg-blue-500 text-white py-3 px-6'
-      : 'bg-blue-200 text-black py-2 px-4';
+      ? "bg-blue-500 text-white py-3 px-6"
+      : "bg-blue-200 text-black py-2 px-4";
   };
 
   return (
-    <div className="w-2/5 p-4 mb-4 bg-white rounded-lg shadow"> {/* Adjust width as needed */}
+    <div className="w-2/5 p-4 mb-4 bg-white rounded-lg shadow">
+      {" "}
+      {/* Adjust width as needed */}
       <h3 className="mb-4 text-xl font-semibold">Admin Actions</h3>
       <button
-        onClick={() => onSelect('quiz')}
-        className={`${getButtonStyle('quiz')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
-      >
-        Learning Management
-      </button>
-      <button
-        onClick={() => onSelect('company')}
-        className={`${getButtonStyle('company')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
-      >
-        Company Management
-      </button>
-      <button
-        onClick={() => onSelect('course')}
-        className={`${getButtonStyle('course')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
+        onClick={() => onSelect("course")}
+        className={`${getButtonStyle(
+          "course"
+        )} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
       >
         Course Management
       </button>
       <button
-        onClick={() => onSelect('community')}
-        className={`${getButtonStyle('community')} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
+        onClick={() => onSelect("quiz")}
+        className={`${getButtonStyle(
+          "quiz"
+        )} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
+      >
+        Learning Management
+      </button>
+      <button
+        onClick={() => onSelect("community")}
+        className={`${getButtonStyle(
+          "community"
+        )} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
       >
         Community Management
+      </button>
+      <button
+        onClick={() => onSelect("user")}
+        className={`${getButtonStyle(
+          "user"
+        )} hover:bg-blue-500 font-semibold rounded-lg mb-2 block w-full text-left`}
+      >
+        User Management
       </button>
     </div>
   );
 }
 
-function ViewCompany() {
-  const chartRef = useRef(null);
+// function ViewCompany() {
+//   const chartRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = chartRef.current.getContext('2d');
+//   useEffect(() => {
+//     const ctx = chartRef.current.getContext('2d');
 
-    // Mock data for registered company count and student count for each company for all months
-    const data = {
-      labels: ['Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023', 'May 2023'],
-      datasets: [
-        {
-          label: 'Enrolled Student Count',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
-          data: [15, 20, 30, 25, 18], // Replace with actual data for Company A
-        },
-        {
-          label: ' Registered Company count',
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-          borderColor: 'rgba(255, 99, 132, 1)',
-          borderWidth: 1,
-          data: [10, 15, 22, 18, 30], // Replace with actual data for Company B
-        },
-        // Add more datasets for additional companies
-      ],
-    };
+//     // Mock data for registered company count and student count for each company for all months
+//     const data = {
+//       labels: ['Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023', 'May 2023'],
+//       datasets: [
+//         {
+//           label: 'Enrolled Student Count',
+//           backgroundColor: 'rgba(75, 192, 192, 0.2)',
+//           borderColor: 'rgba(75, 192, 192, 1)',
+//           borderWidth: 1,
+//           data: [15, 20, 30, 25, 18], // Replace with actual data for Company A
+//         },
+//         {
+//           label: ' Registered Company count',
+//           backgroundColor: 'rgba(255, 99, 132, 0.2)',
+//           borderColor: 'rgba(255, 99, 132, 1)',
+//           borderWidth: 1,
+//           data: [10, 15, 22, 18, 30], // Replace with actual data for Company B
+//         },
+//         // Add more datasets for additional companies
+//       ],
+//     };
 
-    // Chart options
-    const options = {
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-        },
-      },
-    };
+//     // Chart options
+//     const options = {
+//       scales: {
+//         x: {
+//           stacked: true,
+//         },
+//         y: {
+//           stacked: true,
+//         },
+//       },
+//     };
 
-    new Chart(ctx, {
-      type: 'bar',
-      data: data,
-      options: options,
-    });
-  }, []);
+//     new Chart(ctx, {
+//       type: 'bar',
+//       data: data,
+//       options: options,
+//     });
+//   }, []);
 
-  return (
-    <div>
-      <h2 className="mb-4 text-2xl font-semibold text-center">Registered Company Count and Student Count</h2>
-      <canvas ref={chartRef} width="400" height="200"></canvas>
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <h2 className="mb-4 text-2xl font-semibold text-center">Registered Company Count and Student Count</h2>
+//       <canvas ref={chartRef} width="400" height="200"></canvas>
+//     </div>
+//   );
+// }
 
 function ViewQuizzesGraph() {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    const ctx = chartRef.current.getContext('2d');
+    const ctx = chartRef.current.getContext("2d");
 
     // Mock data
     const data = {
-      labels: ['Java script', 'Object-Oriented Concepts Quiz', 'Java Array', 'JavaScript Basics', 'Python Fundamentals'],
+      labels: [
+        "Java script",
+        "Object-Oriented Concepts Quiz",
+        "Java Array",
+        "JavaScript Basics",
+        "Python Fundamentals",
+      ],
       datasets: [
         {
-          label: 'Student Count',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          borderColor: 'rgba(75, 192, 192, 1)',
+          label: "Student Count",
+          backgroundColor: "rgba(75, 192, 192, 0.2)",
+          borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 1,
           data: [20, 45, 30, 10, 15],
         },
-
       ],
     };
 
@@ -284,7 +280,7 @@ function ViewQuizzesGraph() {
     };
 
     new Chart(ctx, {
-      type: 'bar',
+      type: "bar",
       data: data,
       options: options,
     });
@@ -292,32 +288,13 @@ function ViewQuizzesGraph() {
 
   return (
     <div>
-      <h2 className="mt-10 mb-4 text-2xl font-semibold text-center"> Quizzes Graph</h2>
+      <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
+        {" "}
+        Quizzes Graph
+      </h2>
       <canvas ref={chartRef} width="400" height="200"></canvas>
     </div>
   );
 }
-
-
-
-//course chart 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default AdminDashboard;
