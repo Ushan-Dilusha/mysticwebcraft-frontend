@@ -34,6 +34,7 @@
     "scss": "^0.2.4",
     "sweetalert": "^2.1.2",
     "sweetalert2": "^11.7.27",
+    "tesseract.js": "^5.0.5",
     "tw-elements": "^1.0.0",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.3"
