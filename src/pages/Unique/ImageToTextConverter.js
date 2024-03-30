@@ -40,12 +40,12 @@ const ImageToTextConverter = () => {
     <Title level={2} align="center">Image to Text Converter</Title>
 
 
-      
+     
       <input type="file" accept="image/*" onChange={handleImageUpload} />
-
-      {image && <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />}
       
-      <Button type="primary" onClick={extractText} style={{ marginTop: '20px' }}>Extract Text</Button>
+      {image && <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />}
+
+      <Button type="default" onClick={extractText} style={{ marginTop: '20px' }}>Extract Text</Button>
       <div style={{ marginTop: '20px' }}>
       <Title level={4}>Extracted Text:</Title>
         <Paragraph>{text}</Paragraph>
