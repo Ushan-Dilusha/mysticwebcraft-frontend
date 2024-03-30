@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Chart } from "chart.js/auto";
+import { ViewCoursesGraph, ViewQuizzesGraph, CommunityManagementPieChart, UserManagementChart } from "../../components/Charts/adminDashboardCharts";
 
 function AdminDashboard() {
-  const [selectedAdmin, setSelectedAdmin] = useState("quiz");
+  const [selectedAdmin, setSelectedAdmin] = useState("course");
 
   const handleSidebarSelect = (adminType) => {
     setSelectedAdmin(adminType);
@@ -82,29 +82,6 @@ function AdminDashboard() {
                 {/* Include the ViewQuizzesGraph component here */}
               </div>
             )}
-            {selectedAdmin === "company" && (
-              <div>
-                <h3 className="mb-4 text-xl font-semibold ">
-                  Company Admin Actions
-                </h3>
-                <Link to="/manageCompany">
-                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
-                    Manage Company
-                  </button>
-                </Link>
-                <Link to="/company/addCompany">
-                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
-                    Add or Edit Company Details
-                  </button>
-                </Link>
-                <Link to="/addRoadMaps">
-                  <button className="w-full px-4 py-2 mb-2 font-semibold text-black bg-blue-200 rounded-lg hover:bg-blue-300">
-                    Add roadmaps
-                  </button>
-                </Link>
-              </div>
-            )}
-
             {selectedAdmin === "course" && (
               <div>
                 <h3 className="mb-4 text-xl font-semibold ">
@@ -123,14 +100,27 @@ function AdminDashboard() {
               </div>
             )}
           </section>
-
           <section className="p-4 bg-white rounded-lg ">
             {selectedAdmin === "quiz" && (
               <div>
                 <ViewQuizzesGraph className="mt-5" />
               </div>
             )}
-            {selectedAdmin === "company"}
+            {selectedAdmin === "course" && (
+              <div>
+                <ViewCoursesGraph className="mt-5" />
+              </div>
+            )}
+            {selectedAdmin === "community" && (
+              <div>
+                <CommunityManagementPieChart className="mt-5" />
+              </div>
+            )}
+            {selectedAdmin === "user" && (
+              <div>
+                <UserManagementChart className="mt-5" />
+              </div>
+            )}
           </section>
         </div>
       </div>
@@ -182,117 +172,6 @@ function Sidebar({ selectedAdmin = "", onSelect }) {
       >
         User Management
       </button>
-    </div>
-  );
-}
-
-// function ViewCompany() {
-//   const chartRef = useRef(null);
-
-//   useEffect(() => {
-//     const ctx = chartRef.current.getContext('2d');
-
-//     // Mock data for registered company count and student count for each company for all months
-//     const data = {
-//       labels: ['Jan 2023', 'Feb 2023', 'Mar 2023', 'Apr 2023', 'May 2023'],
-//       datasets: [
-//         {
-//           label: 'Enrolled Student Count',
-//           backgroundColor: 'rgba(75, 192, 192, 0.2)',
-//           borderColor: 'rgba(75, 192, 192, 1)',
-//           borderWidth: 1,
-//           data: [15, 20, 30, 25, 18], // Replace with actual data for Company A
-//         },
-//         {
-//           label: ' Registered Company count',
-//           backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//           borderColor: 'rgba(255, 99, 132, 1)',
-//           borderWidth: 1,
-//           data: [10, 15, 22, 18, 30], // Replace with actual data for Company B
-//         },
-//         // Add more datasets for additional companies
-//       ],
-//     };
-
-//     // Chart options
-//     const options = {
-//       scales: {
-//         x: {
-//           stacked: true,
-//         },
-//         y: {
-//           stacked: true,
-//         },
-//       },
-//     };
-
-//     new Chart(ctx, {
-//       type: 'bar',
-//       data: data,
-//       options: options,
-//     });
-//   }, []);
-
-//   return (
-//     <div>
-//       <h2 className="mb-4 text-2xl font-semibold text-center">Registered Company Count and Student Count</h2>
-//       <canvas ref={chartRef} width="400" height="200"></canvas>
-//     </div>
-//   );
-// }
-
-function ViewQuizzesGraph() {
-  const chartRef = useRef(null);
-
-  useEffect(() => {
-    const ctx = chartRef.current.getContext("2d");
-
-    // Mock data
-    const data = {
-      labels: [
-        "Java script",
-        "Object-Oriented Concepts Quiz",
-        "Java Array",
-        "JavaScript Basics",
-        "Python Fundamentals",
-      ],
-      datasets: [
-        {
-          label: "Student Count",
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 1,
-          data: [20, 45, 30, 10, 15],
-        },
-      ],
-    };
-
-    // Chart options
-    const options = {
-      scales: {
-        x: {
-          stacked: true,
-        },
-        y: {
-          stacked: true,
-        },
-      },
-    };
-
-    new Chart(ctx, {
-      type: "bar",
-      data: data,
-      options: options,
-    });
-  }, []);
-
-  return (
-    <div>
-      <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
-        {" "}
-        Quizzes Graph
-      </h2>
-      <canvas ref={chartRef} width="400" height="200"></canvas>
     </div>
   );
 }
