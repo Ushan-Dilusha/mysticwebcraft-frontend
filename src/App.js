@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import AdminDashboard from "./pages/adminDashboard/AdminDashboard";
@@ -10,6 +9,8 @@ import UserDashboard from "./pages/userDashboard/userDashboard";
 import CommunityAddPage from "./pages/communityPage/CommuityAdd";
 import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
 import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
+
+import AdminHeader from "./pages/adminDashboard/AdminHeader"
 
 function App() {
     return (
@@ -27,6 +28,8 @@ function App() {
                     <Route path="/update/:id" element={<UpdateCourse />} />
                     <Route path="/user" element={<UserDashboard />} />
                     <Route path="/img" element={<ImageToTextConverter />} />
+                    <Route path="/header" element={<AdminHeader />} />
+
                 </Routes>
             </BrowserRouter>
         </div>
