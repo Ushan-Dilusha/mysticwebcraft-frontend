@@ -45,7 +45,9 @@ function AdminHeader(){
             <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i className="material-icons opacity-10">people</i>
             </div>
-            <span className="nav-link-text ms-1">Community Managment</span>
+            <Link to="/community-view">
+            <span className="nav-link-text ms-1"style={{color:'white'}}>Community Managment</span>
+            </Link>
           </a>
         </li>
        
