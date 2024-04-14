@@ -1,10 +1,31 @@
 import React, { useEffect, useState } from "react";
+import "../../components/assets/css/headerUI.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {  faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faSearch,faBell, faCog, faUser,faDownload } from '@fortawesome/free-solid-svg-icons';
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeftOutlined } from '@ant-design/icons';
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import Header from "../../pages/adminDashboard/AdminHeader"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //....Delete Course....//
 
@@ -163,8 +184,9 @@ function ViewCourses() {
             <p className="text-lg text-center">Loading</p>
           )}
         </div>
+        
       </div>
     </>
-  );
+  )
 }
 export default ViewCourses;
