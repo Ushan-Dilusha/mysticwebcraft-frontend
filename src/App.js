@@ -10,6 +10,7 @@ import UserDashboard from "./pages/userDashboard/userDashboard";
 import CommunityAddPage from "./pages/communityPage/CommuityAdd";
 import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
 import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
+import CodeComplexityAnalyzer from "./pages/codeComplexity/codeComplexityPage";
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                     <Route path="/update/:id" element={<UpdateCourse />} />
                     <Route path="/user" element={<UserDashboard />} />
                     <Route path="/img" element={<ImageToTextConverter />} />
+                    <Route path="/code-complexity" element={<CodeComplexityAnalyzer />} />
                 </Routes>
             </BrowserRouter>
         </div>
