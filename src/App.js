@@ -23,7 +23,7 @@ function App() {
                     <Route path="/community-update/:id" element={<CommunityUpdatePage />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/addcourse" element={<AddCourse />} />
-                    <Route path="/all" element={<ViewCourses />} />
+                    <Route path="/courses" element={<ViewCourses />} />
                     <Route path="/update/:id" element={<UpdateCourse />} />
                     <Route path="/user" element={<UserDashboard />} />
                     <Route path="/img" element={<ImageToTextConverter />} />

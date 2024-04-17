@@ -1,11 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import Header from "../../components/header/Header";
+import AdminHeader from "../../components/header/AdminHeader";
+import AdminSideNav from "../../components/AdminSideNav/SideNav";
 import Footer from "../../components/footer/Footer";
 import swal from 'sweetalert';
-import { Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeftOutlined } from '@ant-design/icons';
 
 function AddCourse() {
   const [category, setCategory] = useState("");
@@ -15,8 +13,6 @@ function AddCourse() {
   const [image, setImage] = useState("");
   const [chapters, setChapters] = useState("");
   const [price, setPrice] = useState("");
-
-  const navigate = useNavigate();
 
   function onChangeFile(e) {
     setImage(e.target.files[0]);
@@ -59,18 +55,12 @@ function AddCourse() {
       });
   }
 
-  const handleBack = () => {
-    navigate(-1);
-  };
-
   return (
     <>
-      <Header />
-      <div className="flex justify-center">
-        <div className="w-full max-w-xl mt-10">
-          <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
-            Back
-          </Button>
+       <AdminHeader />
+      <AdminSideNav />
+      <div className="flex justify-center pl-48">
+        <div className="w-full max-w-xl mt-10 mb-12">
           <h1 className="mb-4 text-3xl font-bold">Add Course</h1>
           <div className="shadow-lg border-2 rounded-lg p-8">
             <form
