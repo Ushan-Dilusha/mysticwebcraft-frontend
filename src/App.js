@@ -10,6 +10,8 @@ import UserDashboard from "./pages/userDashboard/userDashboard";
 import CommunityAddPage from "./pages/communityPage/CommuityAdd";
 import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
 import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
+import CommunityUserHomePage from "./pages/CommunityUserPage/CommunityUserHomePage";
+import CommunityAddUserPage from "./pages/communityPage/CommuityAddUser";
 
 function App() {
     return (
@@ -20,6 +22,7 @@ function App() {
                     <Route path="/admin" element={<AdminDashboard />} />
                     <Route path="/community-view" element={<CommunityView />} />
                     <Route path="/community-add" element={<CommunityAddPage />} />
+                    <Route path="/community-add-user" element={<CommunityAddUserPage />} />
                     <Route path="/community-update/:id" element={<CommunityUpdatePage />} />
                     <Route path="/" element={<Home />} />
                     <Route path="/addcourse" element={<AddCourse />} />
@@ -27,6 +30,7 @@ function App() {
                     <Route path="/update/:id" element={<UpdateCourse />} />
                     <Route path="/user" element={<UserDashboard />} />
                     <Route path="/img" element={<ImageToTextConverter />} />
+                    <Route path="/community-home" element={<CommunityUserHomePage />} />
                 </Routes>
             </BrowserRouter>
         </div>

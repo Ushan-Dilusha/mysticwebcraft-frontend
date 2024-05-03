@@ -24,7 +24,7 @@ function Header() {
           <Link to="#" className="header-link">
             Courses
           </Link>
-          <Link to="#" className="header-link">
+          <Link to="/community-home" className="header-link">
             Community
           </Link>
           <Link to="#" className="header-link">
