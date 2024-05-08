@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { useParams } from "react-router-dom";
 import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeftOutlined } from '@ant-design/icons';
 import swal from 'sweetalert';
+import AdminHeader from "../../components/header/AdminHeader";
+import AdminSideNav from "../../components/AdminSideNav/SideNav";
 
 function UpdateCourse() {
 
@@ -85,7 +86,9 @@ function UpdateCourse() {
 };
 
   return (
-    <><Header /><>
+    <>
+           <AdminHeader />
+      <AdminSideNav />
       <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8 flex items-center">
         <div className="w-2/3 p-8">
           <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
@@ -184,7 +187,8 @@ function UpdateCourse() {
           </div>
         </div>
       </div>
-    </> <Footer /></>
+  <Footer />
+  </>
     
   );
 }

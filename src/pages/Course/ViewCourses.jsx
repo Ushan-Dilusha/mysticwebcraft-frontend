@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeftOutlined } from '@ant-design/icons';
-import Header from "../../components/header/Header";
+import AdminHeader from "../../components/header/AdminHeader";
+import AdminSideNav from "../../components/AdminSideNav/SideNav";
 import Footer from "../../components/footer/Footer";
 
 //....Delete Course....//
@@ -63,11 +61,6 @@ function ViewCourses() {
     }
   };
 
-  const navigate = useNavigate();
-
-  const handleBack = () => {
-    navigate(-1);
-};
   const handleDelete = (deletedCourseId) => {
     setCourses((prevCourses) =>
       prevCourses.filter((course) => course._id !== deletedCourseId)
@@ -90,15 +83,13 @@ function ViewCourses() {
 
   return (
     <>
-      <Header />
-      <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8">
-      <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
-          Back
-        </Button>
+      <AdminHeader />
+      <AdminSideNav />
+      <div className="mx-auto max-w-screen-xl pl-48 pr-6 py-10" >
         <h1 className="text-3xl lg:text-4xl font-bold mb-8">All Courses</h1>
         <button
           onClick={addNavigation}
-          style={{ marginLeft: "1100px" }}
+          style={{ marginLeft: "900px" }}
           type="submit"
           className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring focus:ring-blue-200"
         >
@@ -164,6 +155,7 @@ function ViewCourses() {
           )}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

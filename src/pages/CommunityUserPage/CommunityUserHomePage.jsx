@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Avatar, Button, Popconfirm, message, Modal } from "antd";
+import { Avatar, Button, message, Modal, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import { timeAgo } from "../../util/timeConver";
-import { fetchCommunities, deleteCommunity } from "../../service/community";
-import AdminHeader from "../../components/header/AdminHeader";
-import AdminSideNav from "../../components/AdminSideNav/SideNav";
+import { fetchCommunities } from "../../service/community";
+import Header from "../../components/header/Header";
 
-function CommunityView() {
+function CommunityUserHomePage() {
   const [communities, setCommunities] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedCommunity, setSelectedCommunity] = useState(null);
-
+  const [comment, setComment] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,22 +26,19 @@ function CommunityView() {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await deleteCommunity(id);
-      setCommunities(communities.filter((community) => community._id !== id));
-      message.success("Community deleted successfully!");
-    } catch (error) {
-      message.error("Failed to delete community");
-    }
+  const handleViewMore = (community) => {
+    setSelectedCommunity(community);
+    setModalVisible(true);
   };
 
-  const handleEdit = async (id) => {
-    navigate(`/community-update/${id}`);
+  const handleAddComment = () => {
+    console.log("Adding comment:", comment);
+    setModalVisible(false);
+    setComment("");
   };
 
   const handleAddCommunity = async (id) => {
-    navigate(`/community-add`);
+    navigate(`/community-add-user`);
   };
 
   const renderModalContent = () => {
@@ -53,6 +49,7 @@ function CommunityView() {
         <p style={{ fontSize: "20px", margin: "5px" }}>Title</p>
         <p style={{ margin: "5px" }}>{selectedCommunity.title}</p>
         <p style={{ fontSize: "20px", margin: "5px" }}>Problem</p>
+        <p style={{ margin: "5px" }}>{selectedCommunity.problem}</p>
         <p style={{ margin: "5px" }}>
           {selectedCommunity.problem.split(" ").map((word, index) => (
             <span key={index}>
@@ -80,18 +77,27 @@ function CommunityView() {
             </span>
           ))}
         </p>
+        <Input
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+          placeholder="Type your comment here..."
+          style={{ margin: "10px 0" }}
+        />
+        <Button
+          type="primary"
+          onClick={handleAddComment}
+          style={{ backgroundColor: "#52c41a", borderColor: "#52c41a" }}
+        >
+          Add Comment
+        </Button>
       </div>
     );
   };
 
   return (
     <>
-      <AdminHeader />
-      <AdminSideNav />
-      <div
-        className="container px-4 py-8"
-        style={{ marginLeft: "250px", maxWidth: "1190px" }}
-      >
+      <Header />
+      <div className="container px-12 py-8 " style={{ maxWidth: "1425px" }}>
         <h1 className="text-3xl font-bold mb-8">All Community Questions</h1>
         <div className="flex justify-end mt-6 mb-4">
           <Button
@@ -123,79 +129,45 @@ function CommunityView() {
                 </div>
               </div>
               <div className="mb-4">
-                {community.problem.length > 50 ? (
-                  <>
-                    <p>Problem: {community.problem.substring(0, 45)}...</p>
-                  </>
-                ) : (
-                  <p>Problem: {community.problem}</p>
-                )}
+                <p>Problem: {community.problem.substring(0, 40)}...</p>
               </div>
               <div className="mb-4">
-                {community.expecting.length > 50 ? (
-                  <>
-                    <p>Expecting: {community.expecting.substring(0, 50)}...</p>
-                    {/* eslint-disable-next-line */}
-                    <a
-                      className="text-blue-500"
-                      style={{ cursor: "pointer" }}
-                      onClick={() => {
-                        setSelectedCommunity(community);
-                        setModalVisible(true);
-                      }}
-                    >
-                      View More
-                    </a>
-                  </>
-                ) : (
-                  <p>Expecting: {community.problem}</p>
-                )}
+                <p>Expecting: {community.expecting}</p>
+                <a
+                  className="text-blue-500"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleViewMore(community)}
+                >
+                  View More
+                </a>
               </div>
-              {community.tags && (
-                <p className="text-sm text-gray-500 mb-2">
-                  Tags: {community.tags.join(", ")}
-                </p>
-              )}
-              {community.languages && (
-                <p className="text-sm text-gray-500 mb-2">
-                  Languages: {community.languages.join(", ")}
-                </p>
-              )}
-              <div className="flex justify-between">
-                <Button
-                  type="primary"
-                  onClick={() => handleEdit(community._id)}
-                  style={{ backgroundColor: "#1d4ed8", color: "#ffffff" }}
-                >
-                  Edit
-                </Button>
-                <Popconfirm
-                  title="Are you sure to delete this community question?"
-                  onConfirm={() => handleDelete(community._id)}
-                  okText={<span style={{ color: "#FF3131" }}>Yes</span>}
-                  cancelText={<span style={{ color: "#1d4ed8" }}>No</span>}
-                  okButtonProps={{
-                    style: { backgroundColor: "#FFFFFF", color: "blue" },
-                  }}
-                  cancelButtonProps={{
-                    style: { backgroundColor: "#FFFFFF", color: "red" },
-                  }}
-                >
-                  <Button
-                    type="danger"
-                    style={{ backgroundColor: "#FF3131", color: "#ffffff" }}
-                  >
-                    Delete
+              <div class="flex flex-row">
+                <div class="basis-2/3">
+                  {community.tags && (
+                    <p className="text-sm text-gray-500 mb-2">
+                      Tags: {community.tags.join(", ")}
+                    </p>
+                  )}
+                  {community.languages && (
+                    <p className="text-sm text-gray-500 mb-2">
+                      Languages: {community.languages.join(", ")}
+                    </p>
+                  )}
+                </div>
+                <div class="basis-1/3">
+                  <Button onClick={() => handleViewMore(community)}>
+                    View Comments
                   </Button>
-                </Popconfirm>
+                </div>
               </div>
             </div>
           ))}
         </div>
         <Modal
           title="Community Question More Details"
-          open={modalVisible}
+          visible={modalVisible}
           onCancel={() => setModalVisible(false)}
+          footer={null}
         >
           {renderModalContent()}
         </Modal>
@@ -205,4 +177,4 @@ function CommunityView() {
   );
 }
 
-export default CommunityView;
+export default CommunityUserHomePage;

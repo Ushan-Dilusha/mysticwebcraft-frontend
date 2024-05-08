@@ -50,7 +50,7 @@ export function ViewQuizzesGraph() {
     <div>
       <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
         {" "}
-        Quizzes Graph
+        Quizzes Summary
       </h2>
       <canvas ref={chartRef} width="400" height="200"></canvas>
     </div>
@@ -113,60 +113,46 @@ export function ViewCoursesGraph() {
   return (
     <div>
       <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
-        Courses Graph
+        Courses Summary
       </h2>
       <canvas ref={chartRef} width="400" height="200"></canvas>
     </div>
   );
 }
 
-export function CommunityManagementPieChart() {
+export function CommunityManagementLineChart() {
   const chartRef = useRef(null);
 
   useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
 
-    // Mock data for users' preferred languages
-    const languageData = {
-      JavaScript: 50,
-      Python: 30,
-      Java: 20,
-      "C#": 15,
-      PHP: 10,
+    // Mock data for users' preferred languages over time
+    const languageDataOverTime = {
+      JavaScript: [10, 20, 30, 40, 50], // Example data for JavaScript users over 5 time periods
+      Python: [5, 10, 15, 20, 30],
+      Java: [5, 10, 15, 20, 20],
+      "C#": [3, 5, 8, 10, 15],
+      PHP: [2, 3, 5, 7, 10],
     };
 
-    // Extracting language labels and counts from languageData
-    const labels = Object.keys(languageData);
-    const counts = Object.values(languageData);
+    // Extracting language labels and counts from languageDataOverTime
+    const labels = Object.keys(languageDataOverTime);
+    const datasets = labels.map((label) => ({
+      label: label,
+      data: languageDataOverTime[label],
+      fill: false,
+      borderColor: getRandomColor(), // Random color for each dataset
+      tension: 0.4,
+    }));
 
-    // Data for the pie chart
+    // Data for the line chart
     const data = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Users by Preferred Language",
-          data: counts,
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.6)",
-            "rgba(54, 162, 235, 0.6)",
-            "rgba(255, 206, 86, 0.6)",
-            "rgba(75, 192, 192, 0.6)",
-            "rgba(153, 102, 255, 0.6)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-          ],
-          borderWidth: 1,
-        },
-      ],
+      labels: ["Period 1", "Period 2", "Period 3", "Period 4", "Period 5"],
+      datasets: datasets,
     };
 
     new Chart(ctx, {
-      type: "pie",
+      type: "line",
       data: data,
       options: {
         responsive: true,
@@ -176,23 +162,29 @@ export function CommunityManagementPieChart() {
           },
           title: {
             display: true,
-            text: "Users by Preferred Language",
+            text: "Users by Preferred Language Over Time",
           },
         },
       },
     });
   }, []);
 
+  // Function to generate a random color
+  const getRandomColor = () => {
+    return `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)}, 1)`;
+  };
+
   return (
     <div>
-      <h2 className="mt-4 mb-2 text-lg font-semibold text-center">
-        Preferred Languages
+      <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
+        Community Summary Over Time
       </h2>
       <canvas ref={chartRef} width="400" height="200"></canvas>
     </div>
   );
 }
-
 export function UserManagementChart() {
   const chartRef = useRef(null);
 
@@ -263,8 +255,8 @@ new Chart(ctx, {
 
 return (
 <div>
-  <h2 className="mt-4 mb-2 text-lg font-semibold text-center">
-    User Management
+  <h2 className="mt-10 mb-4 text-2xl font-semibold text-center">
+    User Summary
   </h2>
   <canvas ref={chartRef} width="400" height="200"></canvas>
 </div>
