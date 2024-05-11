@@ -12,6 +12,7 @@ import CommunityUpdatePage from "./pages/communityPage/CommuityUpdate";
 import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
 import CommunityUserHomePage from "./pages/CommunityUserPage/CommunityUserHomePage";
 import CommunityAddUserPage from "./pages/communityPage/CommuityAddUser";
+import DisplayCourse from "./pages/Course/DisplayCourse";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/user" element={<UserDashboard />} />
                     <Route path="/img" element={<ImageToTextConverter />} />
                     <Route path="/community-home" element={<CommunityUserHomePage />} />
+                    <Route path="/all-courses" element={<DisplayCourse />} />
                 </Routes>
             </BrowserRouter>
         </div>
