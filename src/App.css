@@ -35,4 +35,19 @@
   to {
     transform: rotate(360deg);
   }
+  
+}.loading-message {
+  font-family: 'Arial', sans-serif; /* Change the font to something more stylish */
+  color: #333; /* Change the text color */
+  animation: pulse 1s infinite alternate; /* Add a pulsating animation */
 }
+
+@keyframes pulse {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
