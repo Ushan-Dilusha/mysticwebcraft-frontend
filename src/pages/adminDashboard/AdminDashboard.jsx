@@ -6,6 +6,7 @@ import {
   UserManagementChart,
 } from "../../components/Charts/adminDashboardCharts";
 import AdminHeader from "../../components/header/AdminHeader";
+import Footer from "../../components/footer/Footer";
 import AdminSideNav from "../../components/AdminSideNav/SideNav";
 
 function AdminDashboard() {
@@ -16,23 +17,24 @@ function AdminDashboard() {
         <div className="grid grid-cols-2 ml-48">
           <AdminSideNav />
           <div>
-              <ViewQuizzesGraph className="mt-5" />
-            </div>
-            <div>
-              <ViewCoursesGraph className="mt-5" />
-            </div>
+            <ViewQuizzesGraph className="mt-5" />
+          </div>
+          <div>
+            <ViewCoursesGraph className="mt-5" />
+          </div>
           <section>
             <div>
               <CommunityManagementLineChart className="mt-5" />
             </div>
-            </section>
-            <section>
+          </section>
+          <section>
             <div>
               <UserManagementChart className="mt-5" />
             </div>
           </section>
         </div>
       </div>
+      <Footer></Footer>;
     </div>
   );
 }

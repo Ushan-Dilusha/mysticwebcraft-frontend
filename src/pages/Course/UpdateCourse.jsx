@@ -73,7 +73,7 @@ function UpdateCourse() {
           buttons: false, // Hide the "OK" button
         });
         setTimeout(() => {
-          window.location.href = "/all"; // Redirect after a short delay
+          window.location.href = "/courses"; // Redirect after a short delay
         }, 2500); // Adjust the delay as needed
       })
       .catch((err) => {
@@ -89,8 +89,9 @@ function UpdateCourse() {
     <>
            <AdminHeader />
       <AdminSideNav />
-      <div className="mx-auto max-w-screen-xl px-4 py-10 sm:px-4 sm:py-15 lg:px-8 flex items-center">
-        <div className="w-2/3 p-8">
+      <div className="flex justify-center pl-48">
+      <div className="w-full max-w-xl mt-10 mb-12">
+        <div className="w-10/25 p-50">
           <Button icon={<ArrowLeftOutlined />} onClick={handleBack}>
             Back
           </Button>
@@ -186,6 +187,7 @@ function UpdateCourse() {
             </form>
           </div>
         </div>
+      </div>
       </div>
   <Footer />
   </>
