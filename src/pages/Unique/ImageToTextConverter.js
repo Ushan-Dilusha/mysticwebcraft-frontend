@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Tesseract from 'tesseract.js';
-import { Typography, Button, Upload, message } from 'antd';
+import { Typography, Button, message } from 'antd';
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
