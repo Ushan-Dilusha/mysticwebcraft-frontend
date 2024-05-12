@@ -21,13 +21,13 @@ function Header() {
           <Link to="#" className="header-link">
             Questions
           </Link>
-          <Link to="#" className="header-link">
+          <Link to="/all-courses" className="header-link">
             Courses
           </Link>
           <Link to="/community-home" className="header-link">
             Community
           </Link>
-          <Link to="#" className="header-link">
+          <Link to="/img" className="header-link">
             Image To Code
           </Link>
           <Link to="/code-complexity" className="header-link">

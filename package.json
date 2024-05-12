@@ -4,6 +4,8 @@
   "proxy": "http://localhost:8070/",
   "dependencies": {
     "@ant-design/icons": "^5.3.5",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.18",
     "@monaco-editor/react": "^4.4.4",
     "@reduxjs/toolkit": "^1.9.5",
@@ -19,6 +21,7 @@
     "chart.js": "^4.4.0",
     "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.8.2",
     "monaco-themes": "^0.4.1",
     "react": "^17.0.2",
     "react-chat-engine-advanced": "^0.1.28",
