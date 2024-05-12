@@ -30,7 +30,7 @@ function Header() {
           <Link to="#" className="header-link">
             Image To Code
           </Link>
-          <Link to="#" className="header-link">
+          <Link to="/code-complexity" className="header-link">
             Code Complexity Analyzer
           </Link>
           <Link to="/admin" className="header-link">
