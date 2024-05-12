@@ -13,7 +13,15 @@ import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
 import CommunityUserHomePage from "./pages/CommunityUserPage/CommunityUserHomePage";
 import CommunityAddUserPage from "./pages/communityPage/CommuityAddUser";
 import CodeComplexityAnalyzer from "./pages/codeComplexity/codeComplexityPage";
-
+import AddQuiz from "./pages/Quiz/AddQuiz";
+import ViewQuizList from "./pages/Quiz/ViewQuizList";
+import QuizOverview from "./pages/Quiz/QuizOverview";
+import Qadminquizview from "./pages/Quiz/Qadminquizview";
+import Question from "./components/question/Question";
+import QuestionView from "./components/QuestionView";
+import AddQuestion from "./pages/questionBank/AddQuestion";
+import QuestionOverview from "./pages/Qadmin/QuestionOverview";
+import UpdateQuestion from "./pages/questionBank/UpdateQuestion";
 function App() {
     return (
         <div className="app">
@@ -33,6 +41,15 @@ function App() {
                     <Route path="/img" element={<ImageToTextConverter />} />
                     <Route path="/community-home" element={<CommunityUserHomePage />} />
                     <Route path="/code-complexity" element={<CodeComplexityAnalyzer />} />
+                    <Route path="/addQuiz" element={<AddQuiz/>} />
+                    <Route path="/quizlist" element={<ViewQuizList/>} />
+                    <Route path="/quiz/:quizSetId" element={<QuizOverview/>} />
+                    <Route path="/qadminquizview" element={<Qadminquizview/>} />
+                    <Route path="/qadmin" element={<QuestionOverview/>} />
+                    <Route path="/questions" element={<Question/>} />
+                    <Route path="/question/:questionId" element={<QuestionView/>} />
+                    <Route path="/addQuestion" element={<AddQuestion/>} />
+                    <Route path="/qadmin/updateQuestion/:questionId" element={<UpdateQuestion/>} />
                 </Routes>
             </BrowserRouter>
         </div>
