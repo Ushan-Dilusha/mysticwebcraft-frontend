@@ -59,7 +59,9 @@ function AddCourse() {
     <>
        <AdminHeader />
       <AdminSideNav />
-      <div className="flex justify-center pl-48">
+      <div className="flex justify-center pl-48" style={{ backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",}}>
         <div className="w-full max-w-xl mt-10 mb-12">
           <h1 className="mb-4 text-3xl font-bold">Add Course</h1>
           <div className="shadow-lg border-2 rounded-lg p-8">
