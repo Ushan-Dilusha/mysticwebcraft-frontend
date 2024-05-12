@@ -83,7 +83,7 @@ function ViewCourses() {
     <>
       <AdminHeader />
       <AdminSideNav />
-      <div style={{marginLeft:"75px", backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+      <div style={{ maxWidth: "1800px", marginLeft:"75px", backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
         backgroundSize: "cover",
         backgroundPosition: "center",}} className="mx-auto max-w-screen-xl pl-48 pr-6 py-10">
         <h1 className="text-3xl lg:text-4xl font-bold mb-2">All Courses</h1>

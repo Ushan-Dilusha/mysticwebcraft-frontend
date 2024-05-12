@@ -53,7 +53,7 @@ function DisplayCourse() {
   return (
     <>
        <Header />
-       <div className="container px-12 py-8 " style={{ maxWidth: "1425px" , backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+       <div className="container px-12 py-8 " style={{ maxWidth: "1800px" , backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
         backgroundSize: "cover",
         backgroundPosition: "center",}}>
 

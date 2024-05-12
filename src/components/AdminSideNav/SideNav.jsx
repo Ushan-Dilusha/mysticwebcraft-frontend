@@ -52,7 +52,7 @@ function AdminSideNav() {
               </Link>
             </li>
             <li>
-            <Link to="/quiz"
+            <Link to="#"
                 class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
               >
                 <span class="inline-flex justify-center items-center ml-4"><GiBookshelf /></span>
@@ -86,7 +86,7 @@ function AdminSideNav() {
               </div>
             </li>
             <li>
-            <Link to="/Profile"
+            <Link to="#"
                 class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
               >
                 <span class="inline-flex justify-center items-center ml-4"><FaRegUserCircle/></span>
@@ -94,7 +94,7 @@ function AdminSideNav() {
               </Link>
             </li>
             <li>
-            <Link to="/Setting"
+            <Link to="#"
                 class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
               >
                 <span class="inline-flex justify-center items-center ml-4"><MdOutlineSettings/></span>
