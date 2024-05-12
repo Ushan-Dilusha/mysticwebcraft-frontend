@@ -47,7 +47,7 @@ function AddCourse() {
         setResources("");
         setChapters("");
         setTimeout(() => {
-          window.location.href = "/all"; // Redirect after a short delay
+          window.location.href = "/courses"; // Redirect after a short delay
         }, 2500); // Adjust the delay as needed
       })
       .catch((err) => {
