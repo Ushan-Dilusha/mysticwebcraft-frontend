@@ -78,7 +78,7 @@ pdf.text(heading, 25, 140);
           <button style={{marginLeft:"1070px", display: extractButtonVisible ? 'block' : 'none'}} className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200" onClick={generatePDF} > <FontAwesomeIcon icon={faDownload}/> Extract Text</button>
         </div>  
         <input style={{marginTop:"20px",marginBottom:"20px"}} type="file" accept="image/*" onChange={handleImageUpload} />
-        {image && <img src={image} alt="Uploaded" style={{ maxWidth: '100%' }} />}
+        {image && <img src={image} alt="Uploaded" style={{ maxWidth: '50%', maxHeight:'50%' }} />}
         {image && <Button type="default" onClick={extractText} style={{ marginTop: '20px' }}>Extract Text</Button>}
         <div style={{ marginTop: '20px' }}>
           <Title level={4}>Extracted Text:</Title>
