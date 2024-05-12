@@ -53,7 +53,9 @@ function DisplayCourse() {
   return (
     <>
        <Header />
-       <div className="container px-12 py-8 " style={{ maxWidth: "1425px" }}>
+       <div className="container px-12 py-8 " style={{ maxWidth: "1425px" , backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",}}>
 
        <h1 className="text-3xl font-bold mb-8">Available Courses</h1>
                         <div  style={{ height: "45px", display:"inline-block" , marginLeft:"20px"}}>
