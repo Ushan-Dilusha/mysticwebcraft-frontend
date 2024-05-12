@@ -97,7 +97,10 @@ function CommunityUserHomePage() {
   return (
     <>
       <Header />
-      <div className="container px-12 py-8 " style={{ maxWidth: "1425px" }}>
+      <div className="container px-12 py-8 " style={{ maxWidth: "1425px",
+        backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+        backgroundSize: "cover",
+        backgroundPosition: "center",}}>
         <h1 className="text-3xl font-bold mb-8">All Community Questions</h1>
         <div className="flex justify-end mt-6 mb-4">
           <Button

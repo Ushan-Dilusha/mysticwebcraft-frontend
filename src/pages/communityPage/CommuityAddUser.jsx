@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Button, message, Typography } from "antd";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { addCommunity } from "../../service/community";
 
 function CommunityAddUserPage() {
   const [loading, setLoading] = useState(false);
-
+  const {Title} = Typography;
   const navigate = useNavigate();
   const onFinish = async (values) => {
     setLoading(true);
@@ -47,7 +47,7 @@ function CommunityAddUserPage() {
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
               >
-                <p>Title *</p>
+                <Title level={4}>Title *</Title>
                 <Form.Item
                   name="title"
                   rules={[
@@ -56,14 +56,14 @@ function CommunityAddUserPage() {
                 >
                   <Input placeholder="Enter Title" />
                 </Form.Item>
-                <p>What are the details of your problem? *</p>
+                <Title level={4}>What are the details of your problem? *</Title>
                 <Form.Item
                   name="problem"
                   rules={[{ required: true, message: "Please enter problem!" }]}
                 >
                   <Input.TextArea placeholder="Enter Your Problem" />
                 </Form.Item>
-                <p> What did you try and what were you expecting? *</p>
+                <Title level={4}> What did you try and what were you expecting? *</Title>
                 <Form.Item
                   name="expecting"
                   rules={[
@@ -72,11 +72,11 @@ function CommunityAddUserPage() {
                 >
                   <Input.TextArea placeholder="Enter Your Expecting" />
                 </Form.Item>
-                <p>Tags</p>
+                <Title level={4}>Tags</Title>
                 <Form.Item name="tags">
                   <Input placeholder="Enter Your Tags (comma-separated)" />
                 </Form.Item>
-                <p>Related Languages</p>
+                <Title level={4}>Related Languages</Title>
                 <Form.Item name="languages">
                   <Input placeholder="Enter Your Languages (comma-separated)" />
                 </Form.Item>

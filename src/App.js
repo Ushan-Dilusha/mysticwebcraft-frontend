@@ -13,6 +13,7 @@ import ImageToTextConverter from "./pages/Unique/ImageToTextConverter";
 import CommunityUserHomePage from "./pages/CommunityUserPage/CommunityUserHomePage";
 import CommunityAddUserPage from "./pages/communityPage/CommuityAddUser";
 import DisplayCourse from "./pages/Course/DisplayCourse";
+import CodeComplexityAnalyzer from "./pages/codeComplexity/codeComplexityPage";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/img" element={<ImageToTextConverter />} />
                     <Route path="/community-home" element={<CommunityUserHomePage />} />
                     <Route path="/all-courses" element={<DisplayCourse />} />
+                    <Route path="/code-complexity" element={<CodeComplexityAnalyzer />} />
                 </Routes>
             </BrowserRouter>
         </div>

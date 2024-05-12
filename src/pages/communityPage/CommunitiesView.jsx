@@ -90,7 +90,10 @@ function CommunityView() {
       <AdminSideNav />
       <div
         className="container px-4 py-8"
-        style={{ marginLeft: "250px", maxWidth: "1190px" }}
+        style={{ marginLeft: "250px", maxWidth: "1190px" ,
+        backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+        backgroundSize: "cover",
+        backgroundPosition: "center", }}
       >
         <h1 className="text-3xl font-bold mb-8">All Community Questions</h1>
         <div className="flex justify-end mt-6 mb-4">
