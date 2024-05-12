@@ -82,7 +82,9 @@ pdf.text(heading, 25, 140);
         {image && <Button type="default" onClick={extractText} style={{ marginTop: '20px' }}>Extract Text</Button>}
         <div style={{ marginTop: '20px' }}>
           <Title level={4}>Extracted Text:</Title>
-          <Paragraph>{text}</Paragraph>
+          <div style={{backgroundColor:"lightcyan"}}>
+          <Paragraph style={{color:"blue", padding:"10px"}}>{text}</Paragraph>
+          </div>
         </div>
         <Footer />
       </div>
