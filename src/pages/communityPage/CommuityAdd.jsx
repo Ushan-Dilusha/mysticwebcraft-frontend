@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Button, message, Typography } from "antd";
 import AdminHeader from "../../components/header/AdminHeader";
 import AdminSideNav from "../../components/AdminSideNav/SideNav";
 import Footer from "../../components/footer/Footer";
 import { useNavigate } from "react-router-dom";
 import { addCommunity } from "../../service/community";
+
+const {Title} = Typography;
 
 function CommunityAddPage() {
   const [loading, setLoading] = useState(false);
@@ -28,9 +30,18 @@ function CommunityAddPage() {
 
   return (
     <>
-      <AdminHeader /> 
+      <AdminHeader />
       <AdminSideNav />
-      <div className="flex justify-center" style={{ marginLeft: "250px", maxWidth: "1190px" }}>
+      <div
+        className="flex justify-center"
+        style={{
+          marginLeft: "250px",
+          maxWidth: "1190px",
+          backgroundImage: "url('https://i.ibb.co/d2zHgWW/community.jpg')", // Set background image
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className="w-full max-w-xl mt-10">
           <h1 className="mb-4 text-3xl font-bold">Add Community Questions</h1>
           <Form
@@ -38,7 +49,7 @@ function CommunityAddPage() {
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
           >
-            <p>Title *</p>
+            <Title level={4}>Title *</Title>
             <Form.Item
               name="title"
               rules={[
@@ -47,14 +58,14 @@ function CommunityAddPage() {
             >
               <Input placeholder="Enter Title" />
             </Form.Item>
-            <p>What are the details of your problem? *</p>
+            <Title level={4}>What are the details of your problem? *</Title>
             <Form.Item
               name="problem"
               rules={[{ required: true, message: "Please enter problem!" }]}
             >
               <Input.TextArea placeholder="Enter Your Problem" />
             </Form.Item>
-            <p> What did you try and what were you expecting? *</p>
+            <Title level={4}> What did you try and what were you expecting? *</Title>
             <Form.Item
               name="expecting"
               rules={[
@@ -63,11 +74,11 @@ function CommunityAddPage() {
             >
               <Input.TextArea placeholder="Enter Your Expecting" />
             </Form.Item>
-            <p>Tags</p>
+            <Title level={4}>Tags</Title>
             <Form.Item name="tags">
               <Input placeholder="Enter Your Tags (comma-separated)" />
             </Form.Item>
-            <p>Related Languages</p>
+            <Title level={4}>Related Languages</Title>
             <Form.Item name="languages">
               <Input placeholder="Enter Your Languages (comma-separated)" />
             </Form.Item>
