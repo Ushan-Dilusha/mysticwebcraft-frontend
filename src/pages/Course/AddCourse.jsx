@@ -112,6 +112,21 @@ function AddCourse() {
                   />
                 </label>
               </div>
+              {/* <div>
+                <label className="block text-lg lg:text-xl mb-2">
+                  Link:
+                  <input
+                    type="text"
+                    name="link"
+                    // value={link}
+                    onChange={(e) => {
+                      setDescription(e.target.value);
+                    }}
+                    className="w-full border rounded-lg p-2 focus:ring focus:ring-blue-500 focus:border-blue-500"
+                    required // Add required attribute
+                  />
+                </label>
+              </div> */}
               <div>
                 <label className="block text-lg lg:text-xl mb-2">
                   Resources:

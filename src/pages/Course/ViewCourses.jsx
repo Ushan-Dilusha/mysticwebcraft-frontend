@@ -83,8 +83,8 @@ function ViewCourses() {
     <>
       <AdminHeader />
       <AdminSideNav />
-      <div className="mx-auto max-w-screen-xl pl-48 pr-6 py-10">
-        <h1 className="text-3xl lg:text-4xl font-bold mb-8">All Courses</h1>
+      <div style={{marginLeft:"75px"}} className="mx-auto max-w-screen-xl pl-48 pr-6 py-10">
+        <h1 className="text-3xl lg:text-4xl font-bold mb-2">All Courses</h1>
         <button
           onClick={addNavigation}
           style={{ marginLeft: "900px" }}
